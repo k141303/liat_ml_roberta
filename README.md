@@ -1,16 +1,17 @@
 # liat_ml_roberta
 Multi-Language RoBERTa trained by RIKEN-AIP LIAT.  
-**This repository is not yet complete.**
 
 ## How to install
 
-Can use pypi to install.
+Can use pip to install.
 
 ~~~bash
 pip install liat_ml_roberta
 ~~~
 
 ## How to use
+
+The loaded models and configurations can be used in the same way as [transformers.roberta](https://huggingface.co/docs/transformers/model_doc/roberta).
 
 ~~~python
 from liat_ml_roberta import RoBERTaTokenizer
@@ -20,14 +21,17 @@ def main():
     tokenizer = RoBERTaTokenizer.from_pretrained(version="en_20190121_m10000_v24000_base")
     print(tokenizer.tokenize("This is a pen."))
 
+    config = RoBERTaConfig.from_pretrained("roberta_base_en_20190121_m10000_v24000_u125000")
+    model = RoBERTaModel.from_pretrained("roberta_base_en_20190121_m10000_v24000_u125000", config=config)
+
 
 if __name__ == "__main__":
     main()
 ~~~
 
-## Versions
+## Models
 
-|name|lang|size|bpe merges|vocab size|wikipedia version|  
-|:---:|:---:|:---:|:---:|:---:|:---:|  
-|ja_20190121_m10000_v24000_base|ja|base|10000|24000|20190121|  
-|en_20190121_m10000_v24000_base|en|base|10000|24000|20190121|  
+|name|lang|size|bpe merges|vocab size|updates|wikipedia version|  
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
+|roberta_base_ja_20190121_m10000_v24000_u125000|ja|roberta-base|10000|24000|125000|20190121|  
+|roberta_base_en_20190121_m10000_v24000_u125000|en|roberta-base|10000|24000|125000|20190121|  
