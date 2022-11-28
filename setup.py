@@ -15,7 +15,7 @@ with open("README.md", "r", encoding="utf-8") as fp:
 
 setup(
     name="liat_ml_roberta",
-    version="1.0.0",
+    version="1.1.0",
     description="Multi-Launguage RoBERTa trained by RIKEN-AIP LIAT.",
     long_description=readme,
     long_description_content_type="text/markdown",
