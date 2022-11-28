@@ -34,4 +34,6 @@ if __name__ == "__main__":
 |name|lang|size|bpe merges|vocab size|updates|wikipedia version|  
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 |roberta_base_ja_20190121_m10000_v24000_u125000|ja|roberta-base|10000|24000|125000|20190121|  
+|roberta_base_ja_20190121_m10000_v24000_u500000|ja|roberta-base|10000|24000|500000|20190121|  
 |roberta_base_en_20190121_m10000_v24000_u125000|en|roberta-base|10000|24000|125000|20190121|  
+|roberta_base_en_20190121_m10000_v24000_u500000|en|roberta-base|10000|24000|500000|20190121|  
