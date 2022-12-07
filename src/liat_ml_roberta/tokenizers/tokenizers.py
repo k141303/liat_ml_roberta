@@ -8,32 +8,29 @@ from ..utils.data import load_json
 
 
 class BaseTokenizer(object):
-    def __init__(self, codes_path, vocab_path):
+    def __init__(
+        self,
+        codes_path,
+        vocab_path,
+        cls_token="<s>",
+        pad_token="<pad>",
+        sep_token="</s>",
+        unk_token="<unk>",
+    ):
         codes = codecs.open(codes_path, encoding="utf-8")
         self.bpe = BPE(codes)
 
         self.vocab = load_json(vocab_path)
 
-        self.cls_token = "<s>"
-        self.pad_token = "<pad>"
-        self.sep_token = "</s>"
-        self.unk_token = "<unk>"
+        self.cls_token = cls_token
+        self.pad_token = pad_token
+        self.sep_token = sep_token
+        self.unk_token = unk_token
 
-    @property
-    def cls_token_id(self):
-        return self.vocab[self.cls_token]
-
-    @property
-    def pad_token_id(self):
-        return self.vocab[self.pad_token]
-
-    @property
-    def sep_token_id(self):
-        return self.vocab[self.sep_token]
-
-    @property
-    def unk_token_id(self):
-        return self.vocab[self.unk_token]
+        self.cls_token_id = self.vocab[self.cls_token]
+        self.pad_token_id = self.vocab[self.pad_token]
+        self.sep_token_id = self.vocab[self.sep_token]
+        self.unk_token_id = self.vocab[self.unk_token]
 
     def tokenize(self, text):
         raise NotImplementedError()
