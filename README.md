@@ -1,5 +1,5 @@
 # liat_ml_roberta
-Multi-Language RoBERTa trained by RIKEN-AIP LIAT.  
+RoBERTa trained on Wikipedia Dump.
 
 ## How to install
 
