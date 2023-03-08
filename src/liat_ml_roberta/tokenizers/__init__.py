@@ -1,7 +1,7 @@
 import os
 
 from ..utils.data import load_json
-from ..tokenizers.tokenizers import MeCabBPE, NLTKBPE
+from ..tokenizers.tokenizers import MeCabBPE, NLTKwtBPE, NLTKwptBPE
 
 
 def select_tokenizer(version):
