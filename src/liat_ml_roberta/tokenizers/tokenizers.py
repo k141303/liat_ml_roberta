@@ -2,6 +2,7 @@ import codecs
 
 from subword_nmt.apply_bpe import BPE
 from janome.tokenizer import Tokenizer as JanomeTokenizer
+import nltk
 from nltk.tokenize import wordpunct_tokenize
 
 from ..utils.data import load_json
@@ -54,7 +55,14 @@ class MeCabBPE(BaseTokenizer):
         return tokens.split()
 
 
-class NLTKBPE(BaseTokenizer):
+class NLTKwtBPE(BaseTokenizer):
+    def tokenize(self, text):
+        tokens = nltk.word_tokenize(text)
+        tokens = self.bpe.process_line(" ".join(tokens))
+        return tokens.split()
+
+
+class NLTKwptBPE(BaseTokenizer):
     def tokenize(self, text):
         tokens = wordpunct_tokenize(text)
         tokens = self.bpe.process_line(" ".join(tokens))
